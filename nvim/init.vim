@@ -5,16 +5,23 @@
 " plugins
 call plug#begin('~/.config/nvim/plugin_dir')
 
+Plug 'nvim-lua/completion-nvim'
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'morhetz/gruvbox'
 Plug 'neovim/nvim-lspconfig'
 Plug 'jiangmiao/auto-pairs'
+
 call plug#end()
 
-" =============================================================================
+luafile ~/.config/nvim/lua/init.lua
+
 " general config 
-" =============================================================================
+" autocomplete
+set completeopt=menuone,noinsert,noselect
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" "\<S-Tab>"
+set shortmess+=c
 
 set history=1000			" store :cmdline history
 set number					" line numbers
@@ -30,7 +37,7 @@ set expandtab				" use spaces instead of tabs
 set smarttab
 set hlsearch                " highlight all search matches
 
-"============================= Visual Settings ================================
+" Visual Settings
 if has('termguicolors')
 	" required inside tmux
 	if &term =~# 'tmux-256color'
@@ -48,17 +55,17 @@ set scrolloff=3             " start scrolling 3 lines before edge of viewport
 set sidescrolloff=3         " same as scrolloff but for columns
 "set colorcolumn=80          " show 80th column
 
-"============================= Status Line ====================================
+" Status Line
 set laststatus=2            " always show status line
 
 set stl=%n\:%F%r%m\ %y%=%-10(%l\/%L%)%c%V
 
-"======================== Command Line Settings ===============================
+" Command Line Settings
 if has('showcmd')           " don't show extra info at end of command line
     set noshowcmd
 endif
 
-"=========================== Normal Mappings ==================================
+" Normal Mappings
 nnoremap Y y$
 
 nnoremap <C-h> <C-w>h
@@ -91,15 +98,13 @@ cnoremap <C-a> <home>
 cnoremap <C-e> <end>
 
 " '<tab>' / '<S-tab>' to move between matches without leaving incremental search.
-"============================== Alt Mappings ==================================
-" shift line/block of text up/down by a line
 
 "============================ Leader Mappings =================================
 let mapleader = " "			" set leader to <space>
 
 " open fzf fuzzy file search in vim
 " use window to prevent auto-shifting file lines up
-nnoremap <silent> <leader>t :call fzf#run(fzf#wrap({'window': {'width': 1, 'height': 0.2, 'yoffset': 1}}))<CR>
+nnoremap <silent> <leader>t :call fzf#run(fzf#wrap({'window': {'width': 1, 'height': 0.4, 'yoffset': 1}}))<CR>
 " =============================================================================
 " fzf fuzzy search
 " =============================================================================
@@ -127,18 +132,3 @@ let g:fzf_colors =
   \ 'marker':   ['fg', 'Keyword'],
   \ 'spinner':  ['fg', 'Label'],
   \ 'header':   ['fg', 'Comment'] }
-
-" =============================================================================
-" Language Servers
-" =============================================================================
-:lua << EOF
-require'lspconfig'.clangd.setup{}
-EOF
-
-nnoremap <silent> gd 	<cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> K 	<cmd>lua vim.lsp.buf.hover()<CR>
-" =============================================================================
-" Code Template Functions
-" =============================================================================
-
