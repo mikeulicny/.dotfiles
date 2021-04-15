@@ -5,24 +5,24 @@
 " plugins
 call plug#begin('~/.config/nvim/plugin_dir')
 
-Plug 'nvim-lua/completion-nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete-lsp'
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'morhetz/gruvbox'
 Plug 'neovim/nvim-lspconfig'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
 luafile ~/.config/nvim/lua/init.lua
 
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#lsp#handler_enabled = 1
+
 " general config 
 " autocomplete
-set completeopt=menuone,noinsert,noselect
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" "\<S-Tab>"
-set shortmess+=c
-
+set completeopt-=preview
 set history=1000			" store :cmdline history
 set number					" line numbers
 set relativenumber			" relative line numbers
