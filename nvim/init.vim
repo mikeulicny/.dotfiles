@@ -27,7 +27,6 @@ set history=1000			" store :cmdline history
 set number					" line numbers
 set relativenumber			" relative line numbers
 
-set splitbelow              " always split below
 set splitright              " always split to the right
 
 set shiftwidth=4			" when indenting with '->', use 4 spaces width
@@ -75,7 +74,7 @@ nnoremap <C-l> <C-w>l
 
 nnoremap K <nop>	
 
-" shift line up/down line 
+" shift line up/down line using ALT
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi
@@ -88,7 +87,7 @@ xnoremap <C-j> <C-w>j
 xnoremap <C-k> <C-w>k
 xnoremap <C-l> <C-w>l
 
-" shift selected block up/down line
+" shift selected block up/down line using ALT
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 

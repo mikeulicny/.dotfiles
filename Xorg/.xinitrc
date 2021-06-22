@@ -46,4 +46,4 @@ xset r rate 300 50
 
 # run window manager
 feh --bg-fill ~/pictures/Ubuntu-wallpaper.jpg
-exec dwm
+exec i3
