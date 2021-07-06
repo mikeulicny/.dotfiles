@@ -35,7 +35,6 @@ set softtabstop=4
 set expandtab				" use spaces instead of tabs
 set smarttab
 set hlsearch                " highlight all search matches
-
 " Visual Settings
 if has('termguicolors')
 	" required inside tmux
