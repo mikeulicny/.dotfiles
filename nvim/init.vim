@@ -5,24 +5,31 @@
 " plugins
 call plug#begin('~/.config/nvim/plugin_dir')
 
+Plug 'neovim/nvim-lspconfig'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete-lsp'
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'morhetz/gruvbox'
-Plug 'neovim/nvim-lspconfig'
-" Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
+" deoplete auto-complete
+let g:deoplete#enable_at_startup = 1
+set completeopt-=preview
+
+" set colorscheme before initializing LSP
+let g:gruvbox_contrast_dark="hard"
+colorscheme gruvbox			" colorscheme
+syntax on
+set t_ut=					" correct color for tmux
+
+" lua file contains LSP and diagnostics
 luafile ~/.config/nvim/lua/init.lua
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#lsp#handler_enabled = 1
 
 " general config 
-" autocomplete
-set completeopt-=preview
 set history=1000			" store :cmdline history
 set number					" line numbers
 set relativenumber			" relative line numbers
@@ -35,23 +42,11 @@ set softtabstop=4
 set expandtab				" use spaces instead of tabs
 set smarttab
 set hlsearch                " highlight all search matches
-" Visual Settings
-if has('termguicolors')
-	" required inside tmux
-	if &term =~# 'tmux-256color'
-		let &t_8f="\e[38;2;%ld;%ld;%ldm"
-		let &t_8b="\e[48;2;%ld;%ld;%ldm"
-	endif
-endif
 
-colorscheme gruvbox			" colorscheme
-set t_ut=					" correct color for tmux
-set background=dark
-syntax on				    " syntax highlighting
+" Visual Settings
 set cursorline              " highlight current line
 set scrolloff=3             " start scrolling 3 lines before edge of viewport
 set sidescrolloff=3         " same as scrolloff but for columns
-"set colorcolumn=80          " show 80th column
 
 " Status Line
 set laststatus=2            " always show status line
@@ -73,11 +68,19 @@ nnoremap <C-l> <C-w>l
 
 nnoremap K <nop>	
 
+map <silent> <Up>       <C-W>+
+map <silent> <Down>     <C-W>-
+map <silent> <Left>     <C-w><
+map <silent> <Right>    <C-w>>
+
 " shift line up/down line using ALT
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
+
+nnoremap <Tab> :tabnext<CR>
+nnoremap <S-Tab> :tabprevious<CR>
 
 "============================= Visual Mappings ================================
 " move between windows
