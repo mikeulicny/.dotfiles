@@ -45,5 +45,5 @@ xset -dpms
 xset r rate 300 50
 
 # run window manager
-feh --bg-fill ~/pictures/Ubuntu-wallpaper.jpg
+feh --bg-fill ~/pictures/kali-geometric-16x9.png
 exec dwm
