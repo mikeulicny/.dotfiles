@@ -9,7 +9,7 @@ unsetopt beep
 zstyle :compinstall filename '/home/mike/.zshrc'
 
 # End of lines added by compinstall
-PROMPT='%n@%M%# '
+PROMPT=$'[%n@%M] %F{blue}\U03bb%F{reset} '
 RPROMPT='%~ %t'
 
 # fzf autocomplete settings
