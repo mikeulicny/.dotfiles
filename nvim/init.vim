@@ -11,6 +11,7 @@ Plug 'Shougo/deoplete-lsp'
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
@@ -20,8 +21,9 @@ let g:deoplete#enable_at_startup = 1
 set completeopt-=preview
 
 " set colorscheme before initializing LSP
-let g:gruvbox_contrast_dark="hard"
-colorscheme gruvbox			" colorscheme
+"let g:gruvbox_contrast_dark="hard"
+set termguicolors           " needed for 24-bit colorschemes
+colorscheme nord            " colorscheme
 syntax on
 set t_ut=					" correct color for tmux
 
