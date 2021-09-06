@@ -9,7 +9,7 @@ unsetopt beep
 zstyle :compinstall filename '/home/mike/.zshrc'
 
 # End of lines added by compinstall
-PROMPT=$'[%n@%M] %F{blue}\U03bb%F{reset} '
+PROMPT=$'[%n@%M] \e[0;31m\U03bb\e[0m '
 RPROMPT='%~ %t'
 
 # fzf autocomplete settings
@@ -19,7 +19,7 @@ RPROMPT='%~ %t'
 # use ripgrep by default for faster searching
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_OPTS='--reverse --height 40% --border --preview "cat {}"' 
+export FZF_DEFAULT_OPTS='--reverse --height 40% --border --preview "bat --color=always --style=numbers {}"' 
 
 # allow user-wide installations for npm
 PATH="$HOME/node_modules/bin:$PATH"
