@@ -6,13 +6,20 @@
 call plug#begin('~/.config/nvim/plugin_dir')
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/deoplete-lsp'
+" deprecate deoplete, nvim-cmp is recommended now
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete-lsp'
 Plug 'junegunn/fzf.vim'
-Plug 'justinmk/vim-dirvish'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+" Plug 'justinmk/vim-dirvish' nvim-tree functionality clashes with dirvish
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 call plug#end()
 
@@ -27,9 +34,19 @@ colorscheme nord            " colorscheme
 syntax on
 set t_ut=					" correct color for tmux
 
+" nvim tree g: commands must be before setup is called in init.lua
+let g:nvim_tree_show_icons = {
+            \ 'git': 0,
+            \ 'folders': 1,
+            \ 'files': 1,
+            \ 'folder_arrows': 1
+            \ }  
+
 " lua file contains LSP and diagnostics
 luafile ~/.config/nvim/lua/init.lua
 
+" neovim tree
+nnoremap <C-n> :NvimTreeToggle<CR>
 
 " general config 
 set history=1000			" store :cmdline history
