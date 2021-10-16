@@ -23,8 +23,6 @@ require'nvim-tree'.setup {
     hijack_cursor = false,
     -- updates the root directory of the tree on 'DirChanged' (when you run ':cd' usually)
     update_cwd = false,
-    -- show lsp diagnostics in the signcolumn
-    lsp_diagnostics = false,
     -- update the focused file on 'BufEnter', un-collapse the folders recursively until it finds the file
     update_focused_file = {
         -- enables the feature
@@ -64,13 +62,24 @@ require'nvim-tree'.setup {
 
 -- Autocomplete setup
 local cmp = require("cmp")
+vim.opt.completeopt = "menu,menuone,noselect"
 
 cmp.setup({
-    snippet = {},
-    mapping = {},
+    snippet = {
+        expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body)
+        end
+    },
+    mapping = {
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true })
+    },
     sources = {
         { name = 'nvim_lsp' },
-        { name = 'buffer' }
+        { name = 'vsnip' },
+        { name = 'buffer' },
+        { name = 'path' }
     }
 })
 
@@ -95,24 +104,23 @@ local on_attach = function(client, bufnr)
     -- TODO: set other lsp keymappings if needed
 end
 
-
-local servers = { "ccls", "rust_analyzer", "pyls" }
+local servers = { "ccls", "rust_analyzer" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
         on_attach = on_attach,
         flags = {
-            debounce_text_changes = 150,
+            debounce_text_changes = 150
         },
-        handlers = {
-            ["textDocument/publishDiagnostics"] = vim.lsp.with(
-            vim.lsp.diagnostic.on_publish_diagnostics, {
-                underline = true,
-                signs = true,
-                update_in_insert = true,
-                virtual_text = false
-            })
-        }
+        --handlers = {
+            --["textDocument/publishDiagnostics"] = vim.lsp.with(
+            --vim.lsp.diagnostic.on_publish_diagnostics, {
+                --underline = true,
+                --signs = true,
+                --update_in_insert = true,
+                --virtual_text = false
+            --})
+        --}
     }
 end
 
