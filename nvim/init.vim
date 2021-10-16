@@ -6,16 +6,15 @@
 call plug#begin('~/.config/nvim/plugin_dir')
 
 Plug 'neovim/nvim-lspconfig'
-" deprecate deoplete, nvim-cmp is recommended now
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'Shougo/deoplete-lsp'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 Plug 'junegunn/fzf.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
-" Plug 'justinmk/vim-dirvish' nvim-tree functionality clashes with dirvish
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'jiangmiao/auto-pairs'
@@ -23,9 +22,6 @@ Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 call plug#end()
 
-" deoplete auto-complete
-let g:deoplete#enable_at_startup = 1
-set completeopt-=preview
 
 " set colorscheme before initializing LSP
 "let g:gruvbox_contrast_dark="hard"
@@ -42,7 +38,7 @@ let g:nvim_tree_show_icons = {
             \ 'folder_arrows': 1
             \ }  
 
-" lua file contains LSP and diagnostics
+" source luafile
 luafile ~/.config/nvim/lua/init.lua
 
 " neovim tree
