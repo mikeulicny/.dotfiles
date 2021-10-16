@@ -111,16 +111,7 @@ for _, lsp in ipairs(servers) do
         on_attach = on_attach,
         flags = {
             debounce_text_changes = 150
-        },
-        --handlers = {
-            --["textDocument/publishDiagnostics"] = vim.lsp.with(
-            --vim.lsp.diagnostic.on_publish_diagnostics, {
-                --underline = true,
-                --signs = true,
-                --update_in_insert = true,
-                --virtual_text = false
-            --})
-        --}
+        }
     }
 end
 
