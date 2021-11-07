@@ -104,7 +104,7 @@ local on_attach = function(client, bufnr)
     -- TODO: set other lsp keymappings if needed
 end
 
-local servers = { "ccls", "rust_analyzer" }
+local servers = { "ccls", "rust_analyzer", "pyright" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
