@@ -17,7 +17,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
-Plug 'jiangmiao/auto-pairs'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 call plug#end()
