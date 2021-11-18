@@ -43,6 +43,10 @@ luafile ~/.config/nvim/lua/init.lua
 " neovim tree
 nnoremap <C-n> :NvimTreeToggle<CR>
 
+" disable svelte indenting on <script> and <style> tags
+let g:svelte_indent_script = 0
+let g:svelte_indent_style = 0
+
 " general config 
 set history=1000			" store :cmdline history
 set number					" line numbers
