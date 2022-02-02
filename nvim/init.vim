@@ -23,9 +23,9 @@ call plug#end()
 
 
 " set colorscheme before initializing LSP
-"let g:gruvbox_contrast_dark="hard"
+let g:gruvbox_contrast_dark="hard"
 set termguicolors           " needed for 24-bit colorschemes
-colorscheme nord            " colorscheme
+colorscheme gruvbox         " colorscheme (nord | gruvbox)
 syntax on
 set t_ut=					" correct color for tmux
 
@@ -123,7 +123,7 @@ let mapleader = " "			" set leader to <space>
 
 " open fzf fuzzy file search in vim
 " use window to prevent auto-shifting file lines up
-nnoremap <silent> <leader>t :call fzf#run(fzf#wrap({'window': {'width': 1, 'height': 0.4, 'yoffset': 1}}))<CR>
+nnoremap <silent> <C-p> :call fzf#run(fzf#wrap({'window': {'width': 1, 'height': 0.4, 'yoffset': 1}}))<CR>
 " =============================================================================
 " fzf fuzzy search
 " =============================================================================
