@@ -123,7 +123,7 @@ let mapleader = " "			" set leader to <space>
 
 " open fzf fuzzy file search in vim
 " use window to prevent auto-shifting file lines up
-nnoremap <silent> <C-p> :call fzf#run(fzf#wrap({'window': {'width': 1, 'height': 0.4, 'yoffset': 1}}))<CR>
+nnoremap <silent> <C-p> :call fzf#run(fzf#wrap({'window': {'width': 0.6, 'height': 0.4, 'yoffset': 0}}))<CR>
 " =============================================================================
 " fzf fuzzy search
 " =============================================================================
