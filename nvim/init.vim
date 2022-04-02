@@ -29,6 +29,9 @@ colorscheme gruvbox         " colorscheme (nord | gruvbox)
 syntax on
 set t_ut=					" correct color for tmux
 
+" clipboard
+set clipboard+=unnamedplus
+
 " nvim tree g: commands must be before setup is called in init.lua
 let g:nvim_tree_show_icons = {
             \ 'git': 0,
