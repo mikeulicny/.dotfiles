@@ -33,7 +33,11 @@ set t_ut=					" correct color for tmux
 set clipboard+=unnamedplus
 
 " nvim tree g: commands must be before setup is called in init.lua
+highlight NvimTreeFolderName guifg=normal
+highlight NvimTreeOpenedFolderName guifg=normal
+highlight NvimTreeEmptyFolderName guifg=normal
 let g:nvim_tree_add_trailing = 1
+let g:nvim_tree_git_hl = 1
 let g:nvim_tree_show_icons = {
             \ 'git': 1,
             \ 'folders': 1,
