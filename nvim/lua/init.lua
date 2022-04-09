@@ -84,7 +84,12 @@ cmp.setup({
 })
 
 -- LSP
-local nvim_lsp = require('lspconfig')
+local opts = { noremap = true, silent = true }
+-- See ':help vim.diagnostic.*' for documentation on any of the below functions
+vim.api.nvim_set_keymap('n', 'e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+
+-- Use an on_attach function to only map the following keys after the language server
+-- attaches to the current buffer
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -92,7 +97,6 @@ local on_attach = function(client, bufnr)
     -- buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     -- mappings
-    local opts = { noremap = true, silent = true }
     buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -107,7 +111,7 @@ end
 
 local servers = { "ccls", "rust_analyzer", "pyright" }
 for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
+    require('lspconfig')[lsp].setup {
         capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
         on_attach = on_attach,
         flags = {
