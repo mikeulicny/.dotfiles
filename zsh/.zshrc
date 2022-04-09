@@ -9,7 +9,7 @@ unsetopt beep
 zstyle :compinstall filename '/home/mike/.zshrc'
 
 # End of lines added by compinstall
-PROMPT=$'[%n@%M] \e[0;31m\U03bb\e[0m '
+PROMPT=$'[%n@%M] %{\e[0;31m%}\U03bb%{\e[0m%} '
 RPROMPT='%~ %t'
 
 # fzf autocomplete settings
@@ -34,3 +34,6 @@ fkill() {
         echo $pid | xargs kill -${1:-9}
     fi
 }
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
