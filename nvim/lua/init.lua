@@ -99,7 +99,8 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     
-    buf_set_keymap('n', 'e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+    -- Deprecated
+    -- buf_set_keymap('n', 'e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
 
     -- TODO: set other lsp keymappings if needed
 end
