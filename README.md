@@ -1,17 +1,17 @@
 # .dotfiles
 
-### Install
-st
-dwm
+### Required software
 
-### symlink files
-ln -s .dotfiles/zsh/.fzf.zsh ~.fzf.zsh
-ln -s .dotfiles/zsh/.zsh ~.zsh
-ln -s .dotfiles/tmux/.tmux.conf ~.tmux.conf'
-ln -s .dotfiles/Xorg/.xinitrc
-ln -s .dotfiles/Xorg/.Xresources
+- vim-plug https://github.com/junegunn/fzf#using-linux-package-managers
+- lua (arch:sudo pacman -S lua)
+- fzf (arch: sudo pacman -S fzf) (ubuntu: sudo apt install fzf)
 
-cd .config/nvim/
-ln -s ../../.dotfiles/nvim/init.vim
-ln -s ../../.dotfiles/nvim/plugin_dir/
-ln -s ../../../.dotfiles/nvim/lua/init.lua
+### Additional Software
+
+- st
+- dwm
+
+call
+```
+bash .dotfiles/init.sh
+```
