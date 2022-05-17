@@ -45,5 +45,5 @@ xset -dpms
 xset r rate 300 50
 
 # run window manager
-feh --bg-fill ~/pictures/kali-geometric-16x9.png
+feh --bg-fill ~/Pictures/abstract-cube-wallpaper-3820x2160.jpg
 exec dwm
