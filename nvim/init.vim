@@ -12,12 +12,15 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
-Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
+Plug '~/.fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
-Plug 'evanleck/vim-svelte', {'branch': 'main'}
+Plug 'tanvirtin/monokai.nvim'
+"Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 call plug#end()
 
@@ -25,7 +28,7 @@ call plug#end()
 " set colorscheme before initializing LSP
 let g:gruvbox_contrast_dark="hard"
 set termguicolors           " needed for 24-bit colorschemes
-colorscheme gruvbox         " colorscheme (nord | gruvbox)
+colorscheme monokai         " colorscheme (nord | gruvbox | monokai)
 syntax on
 set t_ut=					" correct color for tmux
 
@@ -143,7 +146,7 @@ let mapleader = " "			" set leader to <space>
 
 " open fzf fuzzy file search in vim
 " use window to prevent auto-shifting file lines up
-nnoremap <silent> <C-p> :call fzf#run(fzf#wrap({'window': {'width': 0.6, 'height': 0.4, 'yoffset': 0}}))<CR>
+nnoremap <silent> <C-p> :call fzf#run(fzf#wrap())<CR>
 " =============================================================================
 " fzf fuzzy search
 " =============================================================================
@@ -153,8 +156,7 @@ let g:fzf_action = {
     \ 'ctrl-x': 'split',
     \ 'ctrl-v': 'vsplit' }
 
-" fzf layout in neovim
-"let g:fzf_layout = { 'down': '~40%' }
+let g:fzf_preview_window = []
 
 " set fzf colors to match the color scheme
 let g:fzf_colors =
