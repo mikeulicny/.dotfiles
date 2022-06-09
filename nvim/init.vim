@@ -20,7 +20,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tanvirtin/monokai.nvim'
-"Plug 'evanleck/vim-svelte', {'branch': 'main'}
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 call plug#end()
 
