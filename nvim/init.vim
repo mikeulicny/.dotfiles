@@ -28,7 +28,7 @@ call plug#end()
 " set colorscheme before initializing LSP
 let g:gruvbox_contrast_dark="hard"
 set termguicolors           " needed for 24-bit colorschemes
-colorscheme monokai         " colorscheme (nord | gruvbox | monokai)
+colorscheme gruvbox         " colorscheme (nord | gruvbox | monokai)
 syntax on
 set t_ut=					" correct color for tmux
 
