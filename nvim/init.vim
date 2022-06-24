@@ -71,6 +71,7 @@ let g:svelte_indent_script = 0
 let g:svelte_indent_style = 0
 
 " general config 
+set mouse=a                 " enable mouse
 set history=1000			" store :cmdline history
 set number					" line numbers
 set relativenumber			" relative line numbers
