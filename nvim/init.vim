@@ -13,7 +13,7 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 "Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
-Plug '~/.fzf'
+Plug '~/.fzf'   " use fzf in OS
 Plug 'junegunn/fzf.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
@@ -39,26 +39,6 @@ set clipboard+=unnamedplus
 highlight NvimTreeFolderName guifg=normal
 highlight NvimTreeOpenedFolderName guifg=normal
 highlight NvimTreeEmptyFolderName guifg=normal
-let g:nvim_tree_add_trailing = 1
-let g:nvim_tree_git_hl = 1
-let g:nvim_tree_show_icons = {
-            \ 'git': 1,
-            \ 'folders': 1,
-            \ 'files': 1,
-            \ 'folder_arrows': 1
-            \ }  
-
-let g:nvim_tree_icons = {
-        \ 'git': {
-            \ 'untracked': "",
-            \ 'unstaged': "",
-            \ 'staged': "﫟",
-            \ 'unmerged': "",
-            \ 'renamed': "凜",
-            \ 'deleted': "ﮁ",
-            \ 'ignored': ""
-            \ }
-        \ }
 
 " source luafile
 luafile ~/.config/nvim/lua/init.lua
