@@ -4,6 +4,9 @@ require'nvim-tree'.setup {
     disable_netrw   = true,
     --hijack the cursor in the tree to put it at the start of the filename
     hijack_cursor = true,
+    git = {
+        ignore = false,
+    },
     view = {
         -- width of the window, can be either a number (columns) or a string in '%', for left or right side placement
         width = 30,
