@@ -1,0 +1,11 @@
+theme = "monokai_pro"
+
+[editor]
+line-number = "relative"
+auto-format = false
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.file-picker]
+hidden = false
