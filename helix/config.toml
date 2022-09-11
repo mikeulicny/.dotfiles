@@ -3,6 +3,7 @@ theme = "monokai_pro"
 [editor]
 line-number = "relative"
 auto-format = false
+cursorline = true
 
 [editor.cursor-shape]
 insert = "bar"
